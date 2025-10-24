@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BILANIASHOPE</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+        <h1>BILANIASHOPE</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+            <button>🔍</button>
+        </div>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="cart.html">Корзина</a>
+        </nav>
+    </header>
+   
+    <main>
+        <section class="products">
+            <h2>In the Shop</h2>
+            <section class="products-section">
+                <div class="product-container">
+                    <div class="product" data-id="1" data-name="КАСТРЮЛЯ" data-price="300">
+                        <img src="photo/product1.jpg" alt="КАСТРЮЛЯ">
+                        <p class="product-name">КАСТРЮЛЯ</p>
+                        <p class="product-price">$300 - $470</p>
+                        <button class="shop-now add-to-cart">Shop Now</button>
+                    </div>
+                    <div class="product" data-id="2" data-name="ТАРЕЛКА-БОЛЬШАЯ" data-price="160">
+                        <img src="photo/product2.jpg" alt="ТАРЕЛКА-БОЛЬШАЯ">
+                        <p class="product-name">ТАРЕЛКА-БОЛЬШАЯ</p>
+                        <p class="product-price">$160 - $200</p>
+                        <button class="shop-now add-to-cart">Shop Now</button>
+                    </div>
+                    <div class="product" data-id="3" data-name="НЕСКОЛЬКО ТАРЕЛОК" data-price="62">
+                        <img src="photo/product3.jpg" alt="НЕСКОЛЬКО ТАРЕЛОК">
+                        <p class="product-name">НЕСКОЛЬКО ТАРЕЛОК</p>
+                        <p class="product-price">$62 - $110</p>
+                        <button class="shop-now add-to-cart">Shop Now</button>
+                    </div>
+                    <div class="product" data-id="4" data-name="СУДОЧЕК" data-price="26">
+                        <img src="photo/product4.jpg" alt="СУДОЧЕК">
+                        <p class="product-name">СУДОЧЕК</p>
+                        <p class="product-price">$26 - $206</p>
+                        <button class="shop-now add-to-cart">Shop Now</button>
+                    </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 BILANIASHOPE. Все права защищены.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Добавляем обработчики событий для кнопок "Shop Now" на главной странице
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.closest('.product').getAttribute('data-id');
+                    const productName = this.closest('.product').getAttribute('data-name');
+                    const productPrice = this.closest('.product').getAttribute('data-price');
+                    
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    
+                    // Проверяем, есть ли уже товар в корзине
+                    const existingItem = cart.find(item => item.id == productId);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({
+                            id: productId,
+                            name: productName,
+                            price: productPrice,
+                            quantity: 1
+                        });
+                    }
+                    
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    alert('Товар добавлен в корзину!');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

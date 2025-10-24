@@ -1,0 +1,18 @@
+[
+    {"productId": 1, "characteristic": "Высота: 10см"},
+    {"productId": 1, "characteristic": "Диаметр: 5см"},
+    {"productId": 2, "characteristic": "Высота: 25см"},
+    {"productId": 2, "characteristic": "Диаметр: 12см"},
+    {"productId": 3, "characteristic": "Диаметр: 20см"},
+    {"productId": 3, "characteristic": "Материал: керамика"},
+    {"productId": 4, "characteristic": "Диаметр: 25см"},
+    {"productId": 4, "characteristic": "Материал: фарфор"},
+    {"productId": 5, "characteristic": "Количество: 4 шт"},
+    {"productId": 5, "characteristic": "Диаметр: 18см"},
+    {"productId": 6, "characteristic": "Количество: 6 шт"},
+    {"productId": 6, "characteristic": "Диаметр: 20см"},
+    {"productId": 7, "characteristic": "Объем: 0.5л"},
+    {"productId": 7, "characteristic": "Материал: пластик"},
+    {"productId": 8, "characteristic": "Объем: 1л"},
+    {"productId": 8, "characteristic": "Материал: нержавеющая сталь"}
+  ]
